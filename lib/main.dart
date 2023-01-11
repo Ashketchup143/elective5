@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'itelective 5',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -88,106 +88,106 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Stack(
               children: [
-              Card(
-                elevation: 30,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0)),
-                child:
-                Column(
-                  children: [
-                    Container(
-                      height:437,
-                      width: 300,
-                      child:
-                      Column(
-                      children: [
-                        Container(
-                          height: 210,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(12.0),
-                              topLeft: Radius.circular(12.0)
+                Card(
+                  elevation: 30,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0)),
+                  child:
+                  Column(
+                    children: [
+                      Container(
+                        height:437,
+                        width: 300,
+                        child:
+                        Column(
+                        children: [
+                          Container(
+                            height: 210,
+                            decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(12.0),
+                                topLeft: Radius.circular(12.0)
+                              ),
+                              image: DecorationImage(
+                                image: AssetImage('assets/pic2.jpg'),
+                                fit: BoxFit.fill
+                                )
+                            )
                             ),
-                            image: DecorationImage(
-                              image: AssetImage('assets/pic2.jpg'),
-                              fit: BoxFit.fill
-                              )
-                          )
-                          ),
-                          Container(
-                            padding: const EdgeInsets.only(top: 40),
-                            child:
-                              const Text("Ashley Lim",
-                              style: TextStyle(
-                                fontFamily:'bodoni',
-                                fontSize: 23,
-                                fontWeight: FontWeight.bold,
-                              )
-                              )
-                          ),
-                          Container(
-                            padding: const EdgeInsets.only(top: 15),
+                            Container(
+                              padding: const EdgeInsets.only(top: 40),
+                              child:
+                                const Text("Ashley Lim",
+                                style: TextStyle(
+                                  fontFamily:'bodoni',
+                                  fontSize: 23,
+                                  fontWeight: FontWeight.bold,
+                                )
+                                )
+                            ),
+                            Container(
+                              padding: const EdgeInsets.only(top: 15),
+                              child: 
+                              Row(
+                                children: const [
+                                  SizedBox(width:45),
+                                  Icon(
+                                    Icons.favorite_border, 
+                                    color: Color.fromARGB(255, 162, 157, 157), 
+                                    size: 15,),
+                                  SizedBox(width:5),
+                                  Text("Visual Designer",
+                                  style: TextStyle(
+                                    fontFamily: 'bodoni',
+                                    fontSize: 13,
+                                    color: Color(0xFF818282)
+                                  ),
+                                  ),
+                                  SizedBox(width:5),
+                                  Icon(
+                                    Icons.room_outlined, 
+                                    color: Color.fromARGB(255, 162, 157, 157), 
+                                    size: 17,
+                                    ),
+                                  SizedBox(width:5),
+                                  Text("Philppines",
+                                  style: TextStyle(
+                                    fontFamily: 'bodoni',
+                                    fontSize: 13,
+                                    color: Color(0xFF818282)
+                                  ),
+                                  )
+                              ],)
+                            ),
+                          Expanded(
                             child: 
-                            Row(
-                              children: const [
-                                SizedBox(width:45),
-                                Icon(
-                                  Icons.favorite_border, 
-                                  color: Color.fromARGB(255, 162, 157, 157), 
-                                  size: 15,),
-                                SizedBox(width:5),
-                                Text("Visual Designer",
-                                style: TextStyle(
-                                  fontFamily: 'bodoni',
-                                  fontSize: 13,
-                                  color: Color(0xFF818282)
-                                ),
-                                ),
-                                SizedBox(width:5),
-                                Icon(
-                                  Icons.room_outlined, 
-                                  color: Color.fromARGB(255, 162, 157, 157), 
-                                  size: 17,
+                            Container(
+                              padding: const EdgeInsets.only(top:45),
+                              child:
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child:
+                                    bottominfo("14k", "Followers"),
                                   ),
-                                SizedBox(width:5),
-                                Text("Philppines",
-                                style: TextStyle(
-                                  fontFamily: 'bodoni',
-                                  fontSize: 13,
-                                  color: Color(0xFF818282)
-                                ),
+                                  Expanded(
+                                    child: 
+                                    bottominfo("259", "Following")
+                                    ),
+                                  Expanded(
+                                    child:
+                                    bottominfo("3k", "Likes") 
+                                  )
+                                ],
                                 )
-                            ],)
-                          ),
-                        Expanded(
-                          child: 
-                          Container(
-                            padding: const EdgeInsets.only(top:45),
-                            child:
-                            Row(
-                              children: [
-                                Expanded(
-                                  child:
-                                  bottominfo("14k", "Followers"),
-                                ),
-                                Expanded(
-                                  child: 
-                                  bottominfo("259", "Following")
-                                  ),
-                                Expanded(
-                                  child:
-                                  bottominfo("3k", "Likes") 
-                                )
-                              ],
-                              )
-                          )
-                          ),
+                            )
+                            ),
+                      ],
+                      )
+                      )
                     ],
-                    )
-                    )
-                  ],
-                )
-              ),
+                  )
+                ),
               Positioned(
                 top:190,
                 right:0,
