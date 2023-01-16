@@ -101,58 +101,80 @@ class _MyHomePageState extends State<MyHomePage> {
 
           Center(
             child:
-            Column(
-              // ignore: prefer_const_literals_to_create_immutables
-              children: [
-                const SizedBox(
-                  height:50
-                ),
-                const Icon(
-                  Icons.lock_open_outlined,
-                  color:Colors.white,
-                  size: 90,
+            Container(
+              width: MediaQuery.of(context).size.width*.8,
+              child: Column(
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  const SizedBox(
+                    height:50
                   ),
-                
-                const SizedBox(
-                  height:40),
-
-                Textfield1(false,'Username'),
-                Container(height:30),
-                Textfield1(true,'Password'),
-                Container(height:12),
-                Container(
-                  alignment: Alignment(0.5, 0.6),
-                  child:
-                  TextButton(onPressed: (() {}), 
-                  child: 
-                  Text("Forget Password",
-                  style: TextStyle(color: Colors.white), )
-                  ),
-                ),
-                Container(height:30),
-
-                Row(children: [
+                  const Icon(
+                    Icons.lock_open_outlined,
+                    color:Colors.white,
+                    size: 90,
+                    ),
+                  
+                  const SizedBox(
+                    height:40),
+            
+                  Textfield1(false,'Username'),
+                  Container(height:30),
+                  Textfield1(true,'Password'),
+                  Container(height:10),
                   Container(
+                    alignment: Alignment.centerRight,
+                    child:
+                    TextButton(onPressed: (() {}), 
                     child: 
-                    TextButton(onPressed: (() {}),
-                     // ignore: prefer_const_constructors
-                     style:ButtonStyle(
-                      // shape: RoundedRectangleBorder(
-                      //   borderRadius: BorderRadius.circular(10)
-                      // ),
-                     ),
-                     child:
-                     Text("SIGN UP",
-                      style: TextStyle(color: Colors.white),
-                     )
-                     ),
-                  )
-                  ],
-                )
+                    Text("Forget password?",
+                    style: TextStyle(color: Colors.white), )
+                    ),
+                  ),
+                  Container(height:40),
+            
+                  Row(children: [
 
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        height: 35,
+                        child: 
+                        ElevatedButton(onPressed: (() {
+                        }), 
+                        child: Text('SIGN UP'),
+                        style: ElevatedButton.styleFrom(
+                          side: BorderSide(width: 1, color: Colors.white),
+                          shape: StadiumBorder(),
+                          backgroundColor: Color.fromARGB(255, 145, 17, 209)
+                        ),
+                        )
+                      ),
+                    ),
+                    Container(width: 30),
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        height: 35,
+                        child: 
+                        ElevatedButton(onPressed: (() {
+                        }), 
+                        child: Text('SIGN IN'),
+                        style: ElevatedButton.styleFrom(
+                          side: BorderSide(width: 1, color: Colors.white),
+                          shape: StadiumBorder(),
+                          backgroundColor: Color.fromARGB(255, 220, 55, 9)
+                        ),
+                        )
+                      ),
+                    )
+                    ],
+                  )
+            
+                  
+                ],
                 
-              ],
-              
+              ),
             ),
           )
         ],
@@ -162,7 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Container Textfield1(bool value1 ,String value2) {
     return Container(
-                width: MediaQuery.of(context).size.width*.6,
+                width: MediaQuery.of(context).size.width,
                 height:50,
                 child: 
                 TextField(
