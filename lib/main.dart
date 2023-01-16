@@ -71,181 +71,67 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Color(0xFFa1b0fa), Color.fromARGB(255, 170, 127, 238)]
-        )
-        ),
-        child:
-        Center(
-        child: 
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Stack(
+      body: 
+      Stack(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            decoration: 
+            const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/running2.jpg'),
+                fit: BoxFit.cover
+              )
+            ),
+          ),
+
+          Opacity(
+            opacity: 0.3,
+            child: 
+            Container(
+              color: const Color.fromARGB(255, 207, 65, 229),
+
+            )
+          ),
+
+          Center(
+            child:
+            Column(
+              // ignore: prefer_const_literals_to_create_immutables
               children: [
-                Card(
-                  elevation: 30,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.0)),
-                  child:
-                  Column(
-                    children: [
-                      Container(
-                        height:437,
-                        width: 300,
-                        child:
-                        Column(
-                        children: [
-                          Container(
-                            height: 210,
-                            decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(12.0),
-                                topLeft: Radius.circular(12.0)
-                              ),
-                              image: DecorationImage(
-                                image: AssetImage('assets/pic2.jpg'),
-                                fit: BoxFit.fill
-                                )
-                            )
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(top: 40),
-                              child:
-                                const Text("Ashley Lim",
-                                style: TextStyle(
-                                  fontFamily:'bodoni',
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.bold,
-                                )
-                                )
-                            ),
-                            Container(
-                              padding: const EdgeInsets.only(top: 15),
-                              child: 
-                              Row(
-                                children: const [
-                                  SizedBox(width:45),
-                                  Icon(
-                                    Icons.favorite_border, 
-                                    color: Color.fromARGB(255, 162, 157, 157), 
-                                    size: 15,),
-                                  SizedBox(width:5),
-                                  Text("Visual Designer",
-                                  style: TextStyle(
-                                    fontFamily: 'bodoni',
-                                    fontSize: 13,
-                                    color: Color(0xFF818282)
-                                  ),
-                                  ),
-                                  SizedBox(width:5),
-                                  Icon(
-                                    Icons.room_outlined, 
-                                    color: Color.fromARGB(255, 162, 157, 157), 
-                                    size: 17,
-                                    ),
-                                  SizedBox(width:5),
-                                  Text("Philppines",
-                                  style: TextStyle(
-                                    fontFamily: 'bodoni',
-                                    fontSize: 13,
-                                    color: Color(0xFF818282)
-                                  ),
-                                  )
-                              ],)
-                            ),
-                          Expanded(
-                            child: 
-                            Container(
-                              padding: const EdgeInsets.only(top:45),
-                              child:
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child:
-                                    bottominfo("14k", "Followers"),
-                                  ),
-                                  Expanded(
-                                    child: 
-                                    bottominfo("259", "Following")
-                                    ),
-                                  Expanded(
-                                    child:
-                                    bottominfo("3k", "Likes") 
-                                  )
-                                ],
-                                )
-                            )
-                            ),
-                      ],
-                      )
-                      )
-                    ],
-                  )
+                const SizedBox(
+                  height:50
                 ),
-              Positioned(
-                top:190,
-                right:0,
-                child: 
-                MaterialButton(
-                  onPressed: () {},
-                  elevation:15,
-                  color: const Color.fromARGB(255, 237, 217, 33),
-                    padding: const EdgeInsets.all(15),
-                    shape: const CircleBorder(),
+                const Icon(
+                  Icons.lock_open_outlined,
+                  color:Colors.white,
+                  size: 90,
+                  ),
+                  
+                Container(
+                  padding: EdgeInsets.only(
+                    top:20
+                    ),
+                  width: MediaQuery.of(context).size.width*.4,
+                  height:40,
                   child: 
-                  const Icon(
-                    Icons.add_rounded,
-                    size: 30, 
-                    color:Color.fromARGB(255, 111, 110, 110)),
-
+                  const TextField(
+                    obscureText: false,
+                    maxLines:1,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: InputBorder.none,
+                    ),
+                  ),
                 )
-                ),
-              const Positioned(
-                top: 17,
-                right: 17,
-                child:
-                Icon(
-                  Icons.male_outlined,
-                  color: Colors.white,
-                  size: 20,
-                )
-                )
-            ],)
-        ],)
+              ],
+              
+            ),
+          )
+        ],
       )
-        
-      )
-      
     );
-  }
-
-  Container bottominfo(String value1,value2) {
-    return Container(
-                                decoration: const BoxDecoration(
-                                  border: Border(
-                                    top: BorderSide(
-                                      width: .5,
-                                      color: Colors.grey),
-                                    right: BorderSide(
-                                      width: .5,
-                                      color:Colors.grey
-                                    ),
-                                  ),   
-                                ),
-                                child:
-                                Column(
-                                  children: [
-                                  Container(height:15),
-                                  Text(value1,style:const TextStyle(fontFamily: 'Noyh',  fontSize: 29, fontWeight:FontWeight.bold, color: Color(0xFF565656))),
-                                  Container(height:7),
-                                  Text(value2,style:const TextStyle(fontFamily: 'Noyh', fontSize: 13,color: Color.fromARGB(255, 136, 133, 133))),
-                                ],)
-                              );
   }
 }
