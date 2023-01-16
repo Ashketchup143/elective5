@@ -74,6 +74,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       body: 
+      // mainAxisAlignment: MainAxisAlignment.center,
+      //     crossAxisAlignment: CrossAxisAlignment.center,
       Stack(
         children: [
           Container(
@@ -117,15 +119,37 @@ class _MyHomePageState extends State<MyHomePage> {
                 Textfield1(false,'Username'),
                 Container(height:30),
                 Textfield1(true,'Password'),
-                Container(height:10),
+                Container(height:12),
                 Container(
-                  
+                  alignment: Alignment(0.5, 0.6),
                   child:
                   TextButton(onPressed: (() {}), 
                   child: 
-                  Text("Forget Password")
+                  Text("Forget Password",
+                  style: TextStyle(color: Colors.white), )
                   ),
+                ),
+                Container(height:30),
+
+                Row(children: [
+                  Container(
+                    child: 
+                    TextButton(onPressed: (() {}),
+                     // ignore: prefer_const_constructors
+                     style:ButtonStyle(
+                      // shape: RoundedRectangleBorder(
+                      //   borderRadius: BorderRadius.circular(10)
+                      // ),
+                     ),
+                     child:
+                     Text("SIGN UP",
+                      style: TextStyle(color: Colors.white),
+                     )
+                     ),
+                  )
+                  ],
                 )
+
                 
               ],
               
