@@ -127,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child:
                     TextButton(onPressed: (() {}), 
                     child: 
-                    Text("Forget password?",
+                    const Text("Forget password?",
                     style: TextStyle(color: Colors.white), )
                     ),
                   ),
@@ -142,11 +142,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: 
                         ElevatedButton(onPressed: (() {
                         }), 
-                        child: Text('SIGN UP'),
+                        child: const Text('SIGN UP'),
                         style: ElevatedButton.styleFrom(
-                          side: BorderSide(width: 1, color: Colors.white),
-                          shape: StadiumBorder(),
-                          backgroundColor: Color.fromARGB(255, 145, 17, 209)
+                          side: const BorderSide(width: 1, color: Colors.white),
+                          shape: const StadiumBorder(),
+                          backgroundColor: const Color.fromARGB(255, 145, 17, 209)
                         ),
                         )
                       ),
@@ -159,11 +159,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: 
                         ElevatedButton(onPressed: (() {
                         }), 
-                        child: Text('SIGN IN'),
+                        child: const Text('SIGN IN'),
                         style: ElevatedButton.styleFrom(
-                          side: BorderSide(width: 1, color: Colors.white),
-                          shape: StadiumBorder(),
-                          backgroundColor: Color.fromARGB(255, 238, 60, 10)
+                          side: const BorderSide(width: 1, color: Colors.white),
+                          shape: const StadiumBorder(),
+                          backgroundColor: const Color.fromARGB(255, 238, 60, 10)
                         ),
                         )
                       ),
@@ -172,8 +172,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   
                   Container(
-                    padding: EdgeInsets.only(top: 60),
-                    child: Text('Signin via Social Media',
+                    padding: const EdgeInsets.only(top: 60),
+                    child: const Text('Signin via Social Media',
                     style: TextStyle(color: Colors.white),),
                   ),
 
@@ -181,21 +181,27 @@ class _MyHomePageState extends State<MyHomePage> {
                     Expanded(
                       child: new Container(
                           margin: const EdgeInsets.only(right: 15.0),
-                          child: Divider(
+                          child: const Divider(
                             color: Color.fromARGB(255, 255, 255, 255),
                             height: 36,
                           )),
                     ),
-                    Icon(Icons.fiber_manual_record, size: 10,color: Colors.white,),
+                    const Icon(Icons.fiber_manual_record, size: 10,color: Colors.white,),
                     Expanded(
                       child: new Container(
                           margin: const EdgeInsets.only(left: 15.0),
-                          child: Divider(
+                          child: const Divider(
                             color: Color.fromARGB(255, 255, 255, 255),
                             height: 36,
                           )),
                     ),
                   ]),
+
+                  Row(children: [
+                   
+                   
+
+                  ],)
 
             
                   
