@@ -197,10 +197,30 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ]),
 
-                  Row(children: [
-                   
-                   
+                  Container(height:30),
 
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,  
+                    children: [
+                    
+                    socialmediabuttons("assets/facebook-f.png"),
+                    Container(width: 15),
+                    socialmediabuttons("assets/twitter.png"),
+                    Container(width: 15),
+                    socialmediabuttons("assets/google.png"),
+                     
+                  
+                    // ElevatedButton(
+                    //   onPressed: () {},
+                    //   child: Image.
+                        
+                    //   ),
+                    //   style: ElevatedButton.styleFrom(
+                    //     shape: CircleBorder(), //<-- SEE HERE
+                    //     padding: EdgeInsets.all(20),
+                    //   ),
+                    // ),
+                  
                   ],)
 
             
@@ -213,6 +233,22 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       )
     );
+  }
+
+  Container socialmediabuttons(String value1) {
+    return Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 2, color: Colors.white),
+                      shape: BoxShape.circle,
+                    ),
+                    child: IconButton(
+                      padding: EdgeInsets.all(15),
+                      iconSize: 30,
+                      icon: Image.asset(value1,color: Colors.white,),
+                      onPressed: () {
+                      },
+                    ),
+                  );
   }
 
   Container Textfield1(bool value1 ,String value2) {
