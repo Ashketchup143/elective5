@@ -163,13 +163,40 @@ class _MyHomePageState extends State<MyHomePage> {
                         style: ElevatedButton.styleFrom(
                           side: BorderSide(width: 1, color: Colors.white),
                           shape: StadiumBorder(),
-                          backgroundColor: Color.fromARGB(255, 220, 55, 9)
+                          backgroundColor: Color.fromARGB(255, 238, 60, 10)
                         ),
                         )
                       ),
                     )
                     ],
-                  )
+                  ),
+                  
+                  Container(
+                    padding: EdgeInsets.only(top: 60),
+                    child: Text('Signin via Social Media',
+                    style: TextStyle(color: Colors.white),),
+                  ),
+
+                  Row(children: <Widget>[
+                    Expanded(
+                      child: new Container(
+                          margin: const EdgeInsets.only(right: 15.0),
+                          child: Divider(
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            height: 36,
+                          )),
+                    ),
+                    Icon(Icons.fiber_manual_record, size: 10,color: Colors.white,),
+                    Expanded(
+                      child: new Container(
+                          margin: const EdgeInsets.only(left: 15.0),
+                          child: Divider(
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            height: 36,
+                          )),
+                    ),
+                  ]),
+
             
                   
                 ],
