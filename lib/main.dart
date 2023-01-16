@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -108,24 +110,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   color:Colors.white,
                   size: 90,
                   ),
-                  
+                
+                const SizedBox(
+                  height:40),
+
+                Textfield1(false,'Username'),
+                Container(height:30),
+                Textfield1(true,'Password'),
+                Container(height:10),
                 Container(
-                  padding: EdgeInsets.only(
-                    top:20
-                    ),
-                  width: MediaQuery.of(context).size.width*.4,
-                  height:40,
+                  
+                  child:
+                  TextButton(onPressed: (() {}), 
                   child: 
-                  const TextField(
-                    obscureText: false,
-                    maxLines:1,
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: InputBorder.none,
-                    ),
+                  Text("Forget Password")
                   ),
                 )
+                
               ],
               
             ),
@@ -133,5 +134,31 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       )
     );
+  }
+
+  Container Textfield1(bool value1 ,String value2) {
+    return Container(
+                width: MediaQuery.of(context).size.width*.6,
+                height:50,
+                child: 
+                TextField(
+                  obscureText: value1,
+                  maxLines:1,
+                  decoration: 
+                  InputDecoration(
+                    labelText: value2,
+                    enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(width:1, color: Colors.white),
+                      borderRadius: BorderRadius.all(Radius.circular(3)
+                      )
+                      
+                      
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,
+                  ),
+                  
+                ),
+              );
   }
 }
