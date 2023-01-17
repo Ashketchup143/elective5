@@ -66,173 +66,231 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      body: 
       // mainAxisAlignment: MainAxisAlignment.center,
       //     crossAxisAlignment: CrossAxisAlignment.center,
-      Stack(
+      body: LayoutBuilder(
+        builder: (BuildContext , BoxConstraints constraints){
+          if(constraints.maxWidth>500){
+            return webUI(context);
+          } else{
+            return mobileUI(context);
+          }
+        },
+       )
+    );
+    
+  }
+
+  Widget webUI(BuildContext context){
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        // mainAxisAlignment:MainAxisAlignment.center,
+        // crossAxisAlignment:CrossAxisAlignment.center,
         children: [
-          Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            decoration: 
-            const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/running2.jpg'),
-                fit: BoxFit.cover
-              )
-            ),
-          ),
-
-          Opacity(
-            opacity: 0.3,
-            child: 
+          Stack(
+            children: [
             Container(
-              color: const Color.fromARGB(255, 207, 65, 229),
-
-            )
-          ),
-
-          Center(
-            child:
-            Container(
-              width: MediaQuery.of(context).size.width*.8,
-              child: Column(
-                // ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  const SizedBox(
-                    height:50
-                  ),
-                  const Icon(
-                    Icons.lock_open_outlined,
-                    color:Colors.white,
-                    size: 90,
-                    ),
-                  
-                  const SizedBox(
-                    height:40),
-            
-                  Textfield1(false,'Username'),
-                  Container(height:30),
-                  Textfield1(true,'Password'),
-                  Container(height:10),
-                  Container(
-                    alignment: Alignment.centerRight,
-                    child:
-                    TextButton(onPressed: (() {}), 
-                    child: 
-                    const Text("Forget password?",
-                    style: TextStyle(color: Colors.white), )
-                    ),
-                  ),
-                  Container(height:40),
-            
-                  Row(children: [
-
-                    Expanded(
-                      flex: 2,
-                      child: Container(
-                        height: 35,
-                        child: 
-                        ElevatedButton(onPressed: (() {
-                        }), 
-                        child: const Text('SIGN UP'),
-                        style: ElevatedButton.styleFrom(
-                          side: const BorderSide(width: 1, color: Colors.white),
-                          shape: const StadiumBorder(),
-                          backgroundColor: const Color.fromARGB(255, 145, 17, 209)
-                        ),
-                        )
-                      ),
-                    ),
-                    Container(width: 30),
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        height: 35,
-                        child: 
-                        ElevatedButton(onPressed: (() {
-                        }), 
-                        child: const Text('SIGN IN'),
-                        style: ElevatedButton.styleFrom(
-                          side: const BorderSide(width: 1, color: Colors.white),
-                          shape: const StadiumBorder(),
-                          backgroundColor: const Color.fromARGB(255, 238, 60, 10)
-                        ),
-                        )
-                      ),
-                    )
-                    ],
-                  ),
-                  
-                  Container(
-                    padding: const EdgeInsets.only(top: 60),
-                    child: const Text('Signin via Social Media',
-                    style: TextStyle(color: Colors.white),),
-                  ),
-
-                  Row(children: <Widget>[
-                    Expanded(
-                      child: new Container(
-                          margin: const EdgeInsets.only(right: 15.0),
-                          child: const Divider(
-                            color: Color.fromARGB(255, 255, 255, 255),
-                            height: 36,
-                          )),
-                    ),
-                    const Icon(Icons.fiber_manual_record, size: 10,color: Colors.white,),
-                    Expanded(
-                      child: new Container(
-                          margin: const EdgeInsets.only(left: 15.0),
-                          child: const Divider(
-                            color: Color.fromARGB(255, 255, 255, 255),
-                            height: 36,
-                          )),
-                    ),
-                  ]),
-
-                  Container(height:30),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,  
-                    children: [
-                    
-                    socialmediabuttons("assets/facebook-f.png"),
-                    Container(width: 15),
-                    socialmediabuttons("assets/twitter.png"),
-                    Container(width: 15),
-                    socialmediabuttons("assets/google.png"),
-                     
-                  
-                    // ElevatedButton(
-                    //   onPressed: () {},
-                    //   child: Image.
-                        
-                    //   ),
-                    //   style: ElevatedButton.styleFrom(
-                    //     shape: CircleBorder(), //<-- SEE HERE
-                    //     padding: EdgeInsets.all(20),
-                    //   ),
-                    // ),
-                  
-                  ],)
-
-            
-                  
-                ],
-                
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width*.5,
+              decoration: 
+              const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/running2.jpg'),
+                  fit: BoxFit.cover
+                )
               ),
             ),
+
+            Opacity(
+              opacity: 0.3,
+              child: 
+              Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width*.5,
+                color: const Color.fromARGB(255, 207, 65, 229),
+
+              )
+            ),
+            ],
+          ),
+          
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width*.5,
+            color: Color.fromARGB(255, 232, 103, 146),
+            child:
+            loginbuttons(context,0.4)
           )
-        ],
+        ]
       )
     );
+  
+  }
+
+  Stack mobileUI(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: 
+          const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/running2.jpg'),
+              fit: BoxFit.cover
+            )
+          ),
+        ),
+
+        Opacity(
+          opacity: 0.3,
+          child: 
+          Container(
+            color: const Color.fromARGB(255, 207, 65, 229),
+
+          )
+        ),
+
+        loginbuttons(context, 1)
+      ],
+    );
+  }
+
+  Center loginbuttons(BuildContext context, double value1,) {
+    return Center(
+        child:
+        Container(
+          width: MediaQuery.of(context).size.width*.8,
+          child: Column(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const SizedBox(
+                height:50
+              ),
+              const Icon(
+                Icons.lock_open_outlined,
+                color:Colors.white,
+                size: 90,
+                ),
+              
+              const SizedBox(
+                height:40),
+        
+              Textfield1(false,'Username', value1),
+              Container(height:30),
+              Textfield1(true,'Password', value1),
+              Container(height:10),
+              Container(
+                alignment: Alignment.centerRight,
+                child:
+                TextButton(onPressed: (() {}), 
+                child: 
+                const Text("Forget password?",
+                style: TextStyle(color: Colors.white), )
+                ),
+              ),
+              Container(height:40),
+        
+              Row(children: [
+
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    height: 35,
+                    child: 
+                    ElevatedButton(onPressed: (() {
+                    }), 
+                    child: const Text('SIGN UP'),
+                    style: ElevatedButton.styleFrom(
+                      side: const BorderSide(width: 1, color: Colors.white),
+                      shape: const StadiumBorder(),
+                      backgroundColor: const Color.fromARGB(255, 145, 17, 209)
+                    ),
+                    )
+                  ),
+                ),
+                Container(width: 30),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    height: 35,
+                    child: 
+                    ElevatedButton(onPressed: (() {
+                    }), 
+                    child: const Text('SIGN IN'),
+                    style: ElevatedButton.styleFrom(
+                      side: const BorderSide(width: 1, color: Colors.white),
+                      shape: const StadiumBorder(),
+                      backgroundColor: const Color.fromARGB(255, 238, 60, 10)
+                    ),
+                    )
+                  ),
+                )
+                ],
+              ),
+              
+              Container(
+                padding: const EdgeInsets.only(top: 60),
+                child: const Text('Signin via Social Media',
+                style: TextStyle(color: Colors.white),),
+              ),
+
+              Row(children: <Widget>[
+                Expanded(
+                  child: new Container(
+                      margin: const EdgeInsets.only(right: 15.0),
+                      child: const Divider(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        height: 36,
+                      )),
+                ),
+                const Icon(Icons.fiber_manual_record, size: 10,color: Colors.white,),
+                Expanded(
+                  child: new Container(
+                      margin: const EdgeInsets.only(left: 15.0),
+                      child: const Divider(
+                        color: Color.fromARGB(255, 255, 255, 255),
+                        height: 36,
+                      )),
+                ),
+              ]),
+
+              Container(height:30),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,  
+                children: [
+                
+                socialmediabuttons("assets/facebook-f.png"),
+                Container(width: 15),
+                socialmediabuttons("assets/twitter.png"),
+                Container(width: 15),
+                socialmediabuttons("assets/google.png"),
+                 
+              
+                // ElevatedButton(
+                //   onPressed: () {},
+                //   child: Image.
+                    
+                //   ),
+                //   style: ElevatedButton.styleFrom(
+                //     shape: CircleBorder(), //<-- SEE HERE
+                //     padding: EdgeInsets.all(20),
+                //   ),
+                // ),
+              
+              ],)
+
+        
+              
+            ],
+            
+          ),
+        ),
+      );
   }
 
   Container socialmediabuttons(String value1) {
@@ -251,9 +309,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
   }
 
-  Container Textfield1(bool value1 ,String value2) {
+  Container Textfield1(bool value1 ,String value2, double wid) {
     return Container(
-                width: MediaQuery.of(context).size.width,
+                width: MediaQuery.of(context).size.width*wid,
                 height:50,
                 child: 
                 TextField(
