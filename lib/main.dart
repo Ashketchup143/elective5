@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //     crossAxisAlignment: CrossAxisAlignment.center,
       body: LayoutBuilder(
         builder: (BuildContext , BoxConstraints constraints){
-          if(constraints.maxWidth>500){
+          if(constraints.maxWidth>600){
             return webUI(context);
           } else{
             return mobileUI(context);
@@ -86,7 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      child: Row(
+      child: 
+      Row(
         // mainAxisAlignment:MainAxisAlignment.center,
         // crossAxisAlignment:CrossAxisAlignment.center,
         children: [
@@ -120,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width*.5,
-            color: Color.fromARGB(255, 232, 103, 146),
+            color: Color.fromARGB(255, 229, 110, 248),
             child:
             loginbuttons(context,0.4)
           )
