@@ -312,7 +312,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Container Textfield1(bool value1 ,String value2, double wid) {
     return Container(
                 width: MediaQuery.of(context).size.width*wid,
-                height:50,
+                height:50.5,
                 child: 
                 TextField(
                   obscureText: value1,
