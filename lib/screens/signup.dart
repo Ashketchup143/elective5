@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 
@@ -222,7 +221,7 @@ Widget mobileUI(BuildContext context){
                   Navigator.pushNamed(context, '/home');
                 }), 
                 child: Text("Login", ),
-                style: ElevatedButton.styleFrom(primary: Color.fromARGB(255, 207, 65, 229)),
+                style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 207, 65, 229)),
                  )
 
               ],
