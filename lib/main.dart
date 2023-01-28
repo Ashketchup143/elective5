@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:practice/screens/about.dart';
@@ -34,7 +33,6 @@ class MyApp extends StatelessWidget {
         '/':(context) => MyHomePage(title: "Home"),
         '/signup':(context) => signup(),
         '/home':(context) => home(),
-        '/about':(context) => about(),
       },
     );
   }
