@@ -137,7 +137,7 @@ Container textfields(String value1) {
                     decoration: InputDecoration(
                       hintText: value1,
                       filled: true,
-                      fillColor: const Color.fromARGB(255, 189, 188, 188),
+                      fillColor: Color.fromARGB(255, 243, 242, 242),
                       border: InputBorder.none,
                       enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(width:1, color: Color.fromARGB(255, 67, 67, 67)),
@@ -203,7 +203,7 @@ Widget mobileUI(BuildContext context){
               Column(
                 children: [
                 Container(height:50),
-                const Text("Sign Up",style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+                const Text("Sign Up",style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white), ),
                 Container(height:50),
                 textfields("Firstname"),
                 Container(height:20),
