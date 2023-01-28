@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
       //     crossAxisAlignment: CrossAxisAlignment.center,
       body: LayoutBuilder(
         builder: (BuildContext , BoxConstraints constraints){
-          if(constraints.maxWidth>600){
+          if(constraints.maxWidth>700){
             return webUI(context);
           } else{
             return mobileUI(context);
@@ -140,6 +140,8 @@ class _MyHomePageState extends State<MyHomePage> {
   
   Widget mobileUI(BuildContext context) {
     return Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
       child: Card(
         child: Stack(
           children: [
