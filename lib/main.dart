@@ -1,6 +1,9 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:practice/screens/about.dart';
+import 'package:practice/screens/home.dart';
+import 'package:practice/screens/signup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +30,12 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routes: {
+        '/':(context) => MyHomePage(title: "Home"),
+        '/signup':(context) => signup(),
+        '/home':(context) => home(),
+        '/about':(context) => about(),
+      },
     );
   }
 }
@@ -131,32 +139,37 @@ class _MyHomePageState extends State<MyHomePage> {
   
   }
 
-  Stack mobileUI(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          decoration: 
-          const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/running2.jpg'),
-              fit: BoxFit.cover
-            )
-          ),
+  
+  Widget mobileUI(BuildContext context) {
+    return Container(
+      child: Card(
+        child: Stack(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              decoration: 
+              const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/running2.jpg'),
+                  fit: BoxFit.cover
+                )
+              ),
+            ),
+          
+            Opacity(
+              opacity: 0.3,
+              child: 
+              Container(
+                color: const Color.fromARGB(255, 207, 65, 229),
+          
+              )
+            ),
+          
+            loginbuttons(context, 1, 0.8)
+          ],
         ),
-
-        Opacity(
-          opacity: 0.3,
-          child: 
-          Container(
-            color: const Color.fromARGB(255, 207, 65, 229),
-
-          )
-        ),
-
-        loginbuttons(context, 1, 0.8)
-      ],
+      ),
     );
   }
 
@@ -202,6 +215,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 35,
                     child: 
                     ElevatedButton(onPressed: (() {
+                      Navigator.pushNamed(context, "/signup");
                     }), 
                     child: const Text('SIGN UP'),
                     style: ElevatedButton.styleFrom(
@@ -303,7 +317,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       padding: EdgeInsets.all(15),
                       iconSize: 30,
                       icon: Image.asset(value1,color: Colors.white,),
-                      onPressed: () {
+                      onPressed: () {value1=="assets/google.png"?Navigator.pushNamed(context, "/home"):value1;
                       },
                     ),
                   );
