@@ -21,17 +21,56 @@ class home extends StatelessWidget {
       ),
       endDrawer: rightdrawer(),
       drawer: leftdrawer(),
-       body:Container(
+       body:LayoutBuilder(
+      builder: (BuildContext , BoxConstraints constraints){
+        if(constraints.maxWidth>720){
+          return webUI(context);
+        } else{
+          return mobileUI(context);
+        }
+      },
+      )
+  );
+  }
+    Widget mobileUI(BuildContext context) {
+      return Container(
+        child:
+      Container(
         color: Color.fromARGB(255, 234, 172, 244),
         child:
         Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [Icon(Icons.lock_outlined, size:500, color: Colors.black,)]),
-        )
-       )
-        
-    );
+            children: [
+              Container(
+                width: 300,
+                height: 300,
+                child: Image.asset("assets/Android_robot.png"))])
+                )
+                ),
+        );
+      
+    
+  }
+  
+  Widget webUI(BuildContext context) {
+    return Container(child:
+      Container(
+        color: Color.fromARGB(255, 234, 172, 244),
+        child:
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 400,
+                height: 400,
+                child: Image.asset("assets/windows.png"))])
+                )
+                ),
+        );
+
   }
 }

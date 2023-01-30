@@ -22,9 +22,22 @@ class about extends StatelessWidget {
       endDrawer: rightdrawer(),
       drawer: leftdrawer(),
       body: Container(
-        
+        color:Color.fromARGB(255, 234, 172, 244),
         child: Center(
           child: Column(
+            children: [
+              Container(
+                width: 500,
+                alignment: Alignment.topCenter,
+                child:Image.asset("assets/UI.jpg"),
+              ),
+              Container(height:10),
+              Container(
+                padding: null,
+                width: 800,
+                child: 
+                Text("                  Flutter maybe easy for others but, for me it is pretty hard. One of the hardest things that I had to understand was how the whole built in code of flutter. Firstly, this was my first UI subject that I have taken. Secondly, \n hatdog"))
+            ],
             
           ),
         ),
