@@ -143,33 +143,31 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      child: Card(
-        child: Stack(
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              decoration: 
-              const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/running2.jpg'),
-                  fit: BoxFit.cover
-                )
-              ),
-            ),
-          
-            Opacity(
-              opacity: 0.3,
-              child: 
-              Container(
-                color: const Color.fromARGB(255, 207, 65, 229),
-          
+      child: Stack(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            decoration: 
+            const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/running2.jpg'),
+                fit: BoxFit.cover
               )
             ),
-          
-            loginbuttons(context, 1, 0.8)
-          ],
-        ),
+          ),
+        
+          Opacity(
+            opacity: 0.3,
+            child: 
+            Container(
+              color: const Color.fromARGB(255, 207, 65, 229),
+        
+            )
+          ),
+        
+          loginbuttons(context, 1, 0.8)
+        ],
       ),
     );
   }

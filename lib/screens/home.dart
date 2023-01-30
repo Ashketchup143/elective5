@@ -46,7 +46,7 @@ class home extends StatelessWidget {
               Container(
                 width: 300,
                 height: 300,
-                child: Image.asset("assets/Android_robot.png"))])
+                child: Image.asset("assets/logo.png"))])
                 )
                 ),
         );
@@ -67,7 +67,7 @@ class home extends StatelessWidget {
               Container(
                 width: 400,
                 height: 400,
-                child: Image.asset("assets/windows.png"))])
+                child: Image.asset("assets/logo.png"))])
                 )
                 ),
         );
