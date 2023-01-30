@@ -76,6 +76,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       // mainAxisAlignment: MainAxisAlignment.center,
       //     crossAxisAlignment: CrossAxisAlignment.center,
+      appBar: AppBar(
+      backgroundColor: const Color.fromARGB(255, 207, 65, 229),
+      title: const Text("Log In",textAlign: TextAlign.center),
+      ),
       body: LayoutBuilder(
         builder: (BuildContext , BoxConstraints constraints){
           if(constraints.maxWidth>700){
@@ -95,8 +99,8 @@ class _MyHomePageState extends State<MyHomePage> {
       width: MediaQuery.of(context).size.width,
       child: 
       Row(
-        // mainAxisAlignment:MainAxisAlignment.center,
-        // crossAxisAlignment:CrossAxisAlignment.center,
+        mainAxisAlignment:MainAxisAlignment.center,
+        crossAxisAlignment:CrossAxisAlignment.center,
         children: [
           Stack(
             children: [
@@ -111,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 )
               ),
             ),
-
+      
             Opacity(
               opacity: 0.3,
               child: 
@@ -119,7 +123,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width*.5,
                 color: const Color.fromARGB(255, 207, 65, 229),
-
+      
               )
             ),
             ],

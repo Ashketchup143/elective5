@@ -21,15 +21,26 @@ class _leftdrawerState extends State<leftdrawer> {
       Column(
         children: [
           Container(height: 50,),
-          Sidebuttons(context,'',"Home",0),
+          Sidebuttons(context,"Home",0),
           Container(height: 10,),
-          Sidebuttons(context,'',"Projects",1),
+          Sidebuttons(context,"Projects",1),
           Container(height: 10,),
-          Sidebuttons(context,'',"Report",2),
+          Sidebuttons(context,"Report",2),
           Expanded(child: Container()),
-          Sidebuttons(context,'',"Settings",3),
+          Sidebuttons(context,"Settings",3),
           Container(height: 10,),
-          Sidebuttons(context,'/about',"About Us",4),
+          Container(
+          width: MediaQuery.of(context).size.width<720?MediaQuery.of(context).size.width*.45:MediaQuery.of(context).size.width*.30,
+          height:50,
+          child:
+          ElevatedButton.icon(onPressed: (() {
+                Navigator.pushNamed(context, '/about');
+              }),
+              icon:Icon(Icons.contact_support), 
+              label: Text("About Us"),
+              style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 207, 65, 229)),
+               ),
+          ),
           Container(height: 50,),
           ],
       )
@@ -37,14 +48,13 @@ class _leftdrawerState extends State<leftdrawer> {
       );
   }
 
-  Container Sidebuttons(BuildContext context, String route,text, int number ) {
+  Container Sidebuttons(BuildContext context, String text, int number ) {
     var arr = [Icons.home, Icons.business_center, Icons.summarize, Icons.settings, Icons.contact_support];
     return Container(
           width: MediaQuery.of(context).size.width<720?MediaQuery.of(context).size.width*.45:MediaQuery.of(context).size.width*.30,
           height:50,
           child:
           ElevatedButton.icon(onPressed: (() {
-                Navigator.pushNamed(context, route);
               }),
               icon:Icon(arr[number]), 
               label: Text(text ),
