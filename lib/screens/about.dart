@@ -20,7 +20,30 @@ class about extends StatelessWidget {
         ],
       ),
       endDrawer: rightdrawer(),
-      drawer: leftdrawer(),
+      drawer: Drawer(
+        child:
+        Container(
+      width:MediaQuery.of(context).size.width<720?MediaQuery.of(context).size.width*.5:MediaQuery.of(context).size.width*.33,
+      height:MediaQuery.of(context).size.height,
+      color: Color.fromARGB(255, 243, 182, 252),
+      child: 
+      Column(
+        children: [
+          Container(height: 50,),
+          Sidebuttons(context,'',"Home",0),
+          Container(height: 10,),
+          Sidebuttons(context,'',"Projects",1),
+          Container(height: 10,),
+          Sidebuttons(context,'',"Report",2),
+          Expanded(child: Container()),
+          Sidebuttons(context,'',"Settings",3),
+          Container(height: 10,),
+          Sidebuttons(context,'',"About Us",4),
+          Container(height: 50,),
+          ],
+      )
+      )
+      ),
       body: Container(
         color:Color.fromARGB(255, 234, 172, 244),
         child: Center(
@@ -43,5 +66,20 @@ class about extends StatelessWidget {
         ),
       ),
     );
+  }
+  Container Sidebuttons(BuildContext context, String route,text, int number ) {
+    var arr = [Icons.home, Icons.business_center, Icons.summarize, Icons.settings, Icons.contact_support];
+    return Container(
+          width: MediaQuery.of(context).size.width<720?MediaQuery.of(context).size.width*.45:MediaQuery.of(context).size.width*.225,
+          height:50,
+          child:
+          ElevatedButton.icon(onPressed: (() {
+                Navigator.pushNamed(context, route);
+              }),
+              icon:Icon(arr[number]), 
+              label: Text(text ),
+              style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 207, 65, 229)),
+               )
+          );
   }
 }

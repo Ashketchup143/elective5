@@ -25,7 +25,7 @@ class _rightdrawerState extends State<rightdrawer> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: ElevatedButton.icon(onPressed: (() {
-                Navigator.popAndPushNamed(context, "/");
+                Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
               }), 
               icon: Icon(Icons.logout),
               label: Text("Log Out",),
