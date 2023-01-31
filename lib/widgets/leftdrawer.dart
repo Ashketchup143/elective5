@@ -10,7 +10,6 @@ class leftdrawer extends StatefulWidget {
 }
 
 class _leftdrawerState extends State<leftdrawer> {
-  final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Container(

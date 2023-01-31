@@ -181,6 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child:
         Container(
           width: MediaQuery.of(context).size.width*value2,
+          height: MediaQuery.of(context).size.height*0.9,
           child: Column(
             // ignore: prefer_const_literals_to_create_immutables
             children: [
