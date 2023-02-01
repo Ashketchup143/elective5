@@ -33,7 +33,7 @@ class _leftdrawerState extends State<leftdrawer> {
           height:50,
           child:
           ElevatedButton.icon(onPressed: (() {
-                Navigator.pushNamed(context, '/about');
+                Navigator.pushReplacementNamed(context, '/about');;
               }),
               icon:Icon(Icons.contact_support), 
               label: Text("About Us"),

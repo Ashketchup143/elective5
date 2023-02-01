@@ -41,15 +41,15 @@ class home extends StatelessWidget {
         Row(
           children: 
                   [
-                    Column(
-                       mainAxisAlignment: MainAxisAlignment.center,
-                       crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Container(
-                                  alignment: Alignment.center,
-                                    width: 300,
-                                    height: 300,
-                                    child: Image.asset("assets/logo.png"))]),
+                    Container(
+                      alignment: Alignment.center,
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        child: 
+                        Container(
+                          width: 300,
+                          height: 300,
+                          child: Image.asset("assets/logo.png"))),
                 ],
         )
                 ),

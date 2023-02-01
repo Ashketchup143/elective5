@@ -116,7 +116,7 @@ Container Signupscreen(BuildContext context) {
                 textfields("Confirm Password"),
                 Container(height:20),
                 ElevatedButton(onPressed: (() {
-                  Navigator.pushNamed(context, '/home');
+                  Navigator.pushReplacementNamed(context, '/home');
                 }), 
                 child: Text("Login", ),
                 style: ElevatedButton.styleFrom(primary: Color.fromARGB(255, 207, 65, 229)),
@@ -218,7 +218,7 @@ Widget mobileUI(BuildContext context){
                 textfields("Confirm Password"),
                 Container(height:20),
                 ElevatedButton(onPressed: (() {
-                  Navigator.pushNamed(context, '/home');
+                  Navigator.pushReplacementNamed(context, '/home');
                 }), 
                 child: Text("Login", ),
                 style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 207, 65, 229)),

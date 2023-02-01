@@ -219,7 +219,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: 35,
                     child: 
                     ElevatedButton(onPressed: (() {
-                      Navigator.pushNamed(context, "/signup");
+                      Navigator.pushReplacementNamed(context, '/signup');
                     }), 
                     child: const Text('SIGN UP'),
                     style: ElevatedButton.styleFrom(
