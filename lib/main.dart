@@ -186,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // ignore: prefer_const_literals_to_create_immutables
             children: [
               const SizedBox(
-                height:50
+                height:29
               ),
               const Icon(
                 Icons.lock_open_outlined,
@@ -321,7 +321,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       padding: EdgeInsets.all(15),
                       iconSize: 30,
                       icon: Image.asset(value1,color: Colors.white,),
-                      onPressed: () {value1=="assets/google.png"?Navigator.pushNamed(context, "/home"):value1;
+                      onPressed: () {value1=="assets/google.png"?Navigator.pushReplacementNamed(context, "/home"):value1;
                       },
                     ),
                   );
