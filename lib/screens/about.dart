@@ -29,7 +29,7 @@ class about extends StatelessWidget {
           Builder(
             builder: (context) => IconButton(
               onPressed: () => Scaffold.of(context).openEndDrawer(), 
-              icon: Container(child:Icon(Icons.account_circle_sharp))))
+              icon: Image.network('https://cdn-icons-png.flaticon.com/512/2224/2224321.png')))
         ],
       ),
       endDrawer: rightdrawer(),
@@ -95,7 +95,7 @@ class about extends StatelessWidget {
           Builder(
             builder: (context) => IconButton(
               onPressed: () => Scaffold.of(context).openEndDrawer(), 
-              icon: Container(child:Icon(Icons.account_circle_sharp))))
+              icon: Image.network('https://cdn-icons-png.flaticon.com/512/2224/2224321.png')))
         ],
       ),
       endDrawer: rightdrawer(),
