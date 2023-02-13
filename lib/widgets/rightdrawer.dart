@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:practice/widgets/userid.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class rightdrawer extends StatefulWidget {
   const rightdrawer({super.key});
@@ -11,6 +13,32 @@ class rightdrawer extends StatefulWidget {
 }
 
 class _rightdrawerState extends State<rightdrawer> {
+var _imageUrl;
+  var _firstName;
+  var _lastName;
+  var _email;
+
+  void initState() {
+      // TODO: implement initState
+      super.initState();
+      _fetchUserProfile();
+    }
+  
+  _fetchUserProfile() async {
+      final response = await http.get(Uri.parse('https://randomuser.me/api/'));
+      if (response.statusCode == 200) {
+        final userData = json.decode(response.body);
+        setState(() {
+          _imageUrl = userData['results'][0]['picture']['large'];
+          _firstName = userData['results'][0]['name']['first'];
+          _lastName = userData['results'][0]['name']['last'];
+          _email = userData['results'][0]['email'];
+        });
+      }
+      print(_firstName);
+    }
+
+
   @override
   Widget build(BuildContext context) {
     return  Container(
@@ -37,8 +65,29 @@ class _rightdrawerState extends State<rightdrawer> {
           Expanded(
             flex: 1,
             child:
-            Container())
+            Container()),
           
+          Center(
+        child: _imageUrl == null
+            ? CircularProgressIndicator()
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Image.network(_imageUrl),
+                  ),
+                  SizedBox(height: 20),
+                  Text(_firstName),
+                  SizedBox(height: 10),
+                  Text(_email),
+                ],
+              ),
+      ),
           ],
          ),
     );

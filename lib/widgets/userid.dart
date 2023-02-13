@@ -36,11 +36,12 @@ class userid extends StatelessWidget {
                                 topRight: Radius.circular(12.0),
                                 topLeft: Radius.circular(12.0)
                               ),
-                              image: DecorationImage(
-                                image: AssetImage('assets/pic2.jpg'),
-                                fit: BoxFit.fill
-                                )
-                            )
+                              // image: DecorationImage(
+                              //   image: AssetImage('assets/pic2.jpg'),
+                              //   fit: BoxFit.fill
+                              //   )
+                            ),
+                            child: Image.network('https://cdn-icons-png.flaticon.com/512/2224/2224321.png'),
                             ),
                             Container(
                               padding: const EdgeInsets.only(top: 40),

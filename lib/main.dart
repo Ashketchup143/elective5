@@ -2,6 +2,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:practice/screens/ApiMeals.dart';
 import 'package:practice/screens/about.dart';
 import 'package:practice/screens/home.dart';
 import 'package:practice/screens/signup.dart';
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
         '/':(context) => MyHomePage(title: "Home"),
         '/signup':(context) => signup(),
         '/home':(context) => home(),
-        '/about':(context) => about()
+        '/about':(context) => about(),
+        '/api':(context) => ApiMeals()
       },
     );
   }
@@ -41,30 +43,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _imageUrl;
-  var _firstName;
-  var _lastName;
-  var _email;
-
-  void initState() {
-      // TODO: implement initState
-      super.initState();
-      _fetchUserProfile();
-    }
   
-  _fetchUserProfile() async {
-      final response = await http.get(Uri.parse('https://randomuser.me/api/'));
-      if (response.statusCode == 200) {
-        final userData = json.decode(response.body);
-        setState(() {
-          _imageUrl = userData['results'][0]['picture']['large'];
-          _firstName = userData['results'][0]['name']['first'];
-          _lastName = userData['results'][0]['name']['last'];
-          _email = userData['results'][0]['email'];
-        });
-      }
-      print(_firstName);
-    }
     
   @override
   Widget build(BuildContext context) {
@@ -298,27 +277,7 @@ class _MyHomePageState extends State<MyHomePage> {
               
               ],),
 
-        Center(
-        child: _imageUrl == null
-            ? CircularProgressIndicator()
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Image.network(_imageUrl),
-                  ),
-                  SizedBox(height: 20),
-                  Text(_firstName),
-                  SizedBox(height: 10),
-                  Text(_email),
-                ],
-              ),
-      ),
+        
               
             ],
             

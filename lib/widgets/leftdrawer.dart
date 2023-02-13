@@ -22,7 +22,18 @@ class _leftdrawerState extends State<leftdrawer> {
           Container(height: 50,),
           Sidebuttons(context,"Home",0),
           Container(height: 10,),
-          Sidebuttons(context,"Projects",1),
+           Container(
+          width: MediaQuery.of(context).size.width<720?MediaQuery.of(context).size.width*.45:MediaQuery.of(context).size.width*.30,
+          height:50,
+          child:
+          ElevatedButton.icon(onPressed: (() {
+                Navigator.pushReplacementNamed(context, '/api');;
+              }),
+              icon:Icon(Icons.contact_support), 
+              label: Text("API meals"),
+              style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 207, 65, 229)),
+               ),
+          ),
           Container(height: 10,),
           Sidebuttons(context,"Report",2),
           Expanded(child: Container()),
