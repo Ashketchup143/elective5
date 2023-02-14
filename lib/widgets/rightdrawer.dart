@@ -28,7 +28,7 @@ var _imageUrl = "https://cdn-icons-png.flaticon.com/512/2224/2224321.png";
   
   _fetchUserProfile() async {
       final response = await http.get(Uri.parse('https://randomuser.me/api/'));
-      if (response.statusCode == 200) {
+      
         final userData = json.decode(response.body);
         setState(() {
           _imageUrl = userData['results'][0]['picture']['large'];
@@ -38,10 +38,6 @@ var _imageUrl = "https://cdn-icons-png.flaticon.com/512/2224/2224321.png";
           _gender=userData['results'][0]['gender'];
           _adress=userData['results'][0]['location']['country'];
         });
-      }
-      print(_gender);
-      print(_firstName);
-      print(_adress);
     }
 
 
