@@ -1,10 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:practice/widgets/leftdrawer.dart';
 import 'package:practice/widgets/rightdrawer.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 
-class about extends StatelessWidget {
+class about extends StatefulWidget {
   const about({super.key});
+
+  @override
+  State<about> createState() => _aboutState();
+}
+
+class _aboutState extends State<about> {
+  var _imageUrl = "https://cdn-icons-png.flaticon.com/512/2224/2224321.png";
+
+  void initState() {
+      // TODO: implement initState
+      super.initState();
+      _fetchUserProfile();
+    }
+  
+  _fetchUserProfile() async {
+      final response = await http.get(Uri.parse('https://randomuser.me/api/'));
+      
+        final userData = json.decode(response.body);
+        setState(() {
+          _imageUrl = userData['results'][0]['picture']['large'];
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +53,8 @@ class about extends StatelessWidget {
           Builder(
             builder: (context) => IconButton(
               onPressed: () => Scaffold.of(context).openEndDrawer(), 
-              icon: Image.network('https://cdn-icons-png.flaticon.com/512/2224/2224321.png')))
-        ],
+              icon: CircleAvatar(radius: 10,child:ClipOval(child:Image.network(_imageUrl))))
+      )],
       ),
       endDrawer: rightdrawer(),
       drawer: Drawer(
@@ -95,7 +119,7 @@ class about extends StatelessWidget {
           Builder(
             builder: (context) => IconButton(
               onPressed: () => Scaffold.of(context).openEndDrawer(), 
-              icon: Image.network('https://cdn-icons-png.flaticon.com/512/2224/2224321.png')))
+              icon: CircleAvatar(radius: 10,child:ClipOval(child:Image.network(_imageUrl)))))
         ],
       ),
       endDrawer: rightdrawer(),

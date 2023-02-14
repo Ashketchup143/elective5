@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:practice/widgets/leftdrawer.dart';
 import 'package:practice/widgets/rightdrawer.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 
-class home extends StatelessWidget {
+class home extends StatefulWidget {
   const home({super.key});
 
   @override
+  State<home> createState() => _homeState();
+}
 
+class _homeState extends State<home> {
+  
+  @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext , BoxConstraints constraints){
@@ -19,6 +26,7 @@ class home extends StatelessWidget {
       },
       );
   }
+
     Widget mobileUI(BuildContext context) {
       return 
         Scaffold(
@@ -58,7 +66,7 @@ class home extends StatelessWidget {
       
     
   }
-  
+
   Widget webUI(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
