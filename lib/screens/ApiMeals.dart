@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:practice/widgets/leftdrawer.dart';
+import 'package:practice/widgets/rightdrawer.dart';
 
 class ApiMeals extends StatefulWidget {
   @override
@@ -48,7 +50,7 @@ class _ApiMealsState extends State<ApiMeals> {
  Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext , BoxConstraints constraints){
-        if(constraints.maxWidth>400){
+        if(constraints.maxWidth>600){
           return webUI(context);
         } else{
           return mobileUI(context);
@@ -63,7 +65,15 @@ class _ApiMealsState extends State<ApiMeals> {
       appBar: AppBar(
         title: Text('Seafood Meals'),
         backgroundColor: const Color.fromARGB(255, 207, 65, 229),
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              onPressed: () => Scaffold.of(context).openEndDrawer(), 
+              icon: Image.network('https://cdn-icons-png.flaticon.com/512/2224/2224321.png')))
+        ],
       ),
+      endDrawer: rightdrawer(),
+      drawer: leftdrawer(),
       body: _meals.length > 0
           ? Container(
             color: Color.fromARGB(255, 234, 172, 244),
@@ -89,31 +99,47 @@ class _ApiMealsState extends State<ApiMeals> {
       appBar: AppBar(
         title: Text('Seafood Meals'),
         backgroundColor: const Color.fromARGB(255, 207, 65, 229),
+         actions: [
+          Builder(
+            builder: (context) => IconButton(
+              onPressed: () => Scaffold.of(context).openEndDrawer(), 
+              icon: Image.network('https://cdn-icons-png.flaticon.com/512/2224/2224321.png')))
+        ],
       ),
+      endDrawer: rightdrawer(),
+      drawer: leftdrawer(),
        body: _meals.length > 0
-          ? Wrap(
-            alignment: WrapAlignment.center,
-            direction: Axis.horizontal,
-            children: _meals.map((meal) {
-              return Container(
-                width: 200.0,
-                child: Card(
-                  child: Container(
-                    width: 250.0,
-                    height: 300.0,
-                    child: Column(
-                      children: [
-                        Image.network(meal.strMealThumb),
-                        SizedBox(height: 20.0),
-                        Text(meal.strMeal),
-                        SizedBox(height: 20.0),
-                        Text('ID: ${meal.idMeal}'),
-                      ],
-                    ),
-                  ),
+          ? Container(
+            color: Color.fromARGB(255, 234, 172, 244),
+            child: Center(
+              child: SingleChildScrollView(scrollDirection: Axis.vertical,
+                child: Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  alignment: WrapAlignment.center,
+                  direction: Axis.horizontal,
+                  children: _meals.map((meal) {
+                    return Container(
+                      width: 200.0,
+                      child: Card(
+                        child: Container(
+                          width: 250.0,
+                          height: 300.0,
+                          child: Column(
+                            children: [
+                              Image.network(meal.strMealThumb),
+                              SizedBox(height: 20.0),
+                              Text(meal.strMeal),
+                              SizedBox(height: 20.0),
+                              Text('ID: ${meal.idMeal}'),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  }).toList(),
                 ),
-              );
-            }).toList(),
+              ),
+            ),
           )
           : Center(
               child: CircularProgressIndicator(),

@@ -23,6 +23,7 @@ class home extends StatelessWidget {
       return 
         Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: const Color.fromARGB(255, 207, 65, 229),
         title: Text("Home",textAlign: TextAlign.center,),
         actions: [
@@ -61,6 +62,7 @@ class home extends StatelessWidget {
   Widget webUI(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: const Color.fromARGB(255, 207, 65, 229),
         title: Text("Home",textAlign: TextAlign.center,),
         actions: [

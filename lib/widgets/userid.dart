@@ -3,7 +3,13 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class userid extends StatelessWidget {
-  const userid({super.key});
+  String imgURL;
+  String first;
+  String last ;
+  String email ;
+  String gender;
+  String adress;
+  userid({super.key, this.imgURL = "", this.first="", this.last="",this.email="", this.gender="", this.adress=""});
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +47,12 @@ class userid extends StatelessWidget {
                               //   fit: BoxFit.fill
                               //   )
                             ),
-                            child: Image.network('https://cdn-icons-png.flaticon.com/512/2224/2224321.png'),
+                            child: imgURL == "" ? Image.network('https://cdn-icons-png.flaticon.com/512/2224/2224321.png') : Image.network(this.imgURL),
                             ),
                             Container(
                               padding: const EdgeInsets.only(top: 40),
                               child:
-                                const Text("Ashley Lim",
+                                 Text(first+" "+last,
                                 style: TextStyle(
                                   fontFamily:'bodoni',
                                   fontSize: 23,
@@ -58,14 +64,14 @@ class userid extends StatelessWidget {
                               padding: const EdgeInsets.only(top: 15),
                               child: 
                               Row(
-                                children: const [
-                                  SizedBox(width:35),
+                                children: [
+                                  Expanded(child: Container(width:5)),
                                   Icon(
                                     Icons.favorite_border, 
                                     color: Color.fromARGB(255, 162, 157, 157), 
                                     size: 15,),
                                   SizedBox(width:5),
-                                  Text("Visual Designer",
+                                  Text(gender,
                                   style: TextStyle(
                                     fontFamily: 'bodoni',
                                     fontSize: 13,
@@ -79,13 +85,14 @@ class userid extends StatelessWidget {
                                     size: 17,
                                     ),
                                   SizedBox(width:5),
-                                  Text("Philppines",
+                                  Text(adress,
                                   style: TextStyle(
                                     fontFamily: 'bodoni',
                                     fontSize: 13,
                                     color: Color(0xFF818282)
                                   ),
-                                  )
+                                  ),
+                                  Expanded(child: Container(width:5)),
                               ],)
                             ),
                           Expanded(

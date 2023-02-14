@@ -13,10 +13,12 @@ class rightdrawer extends StatefulWidget {
 }
 
 class _rightdrawerState extends State<rightdrawer> {
-var _imageUrl;
-  var _firstName;
-  var _lastName;
-  var _email;
+var _imageUrl = "https://cdn-icons-png.flaticon.com/512/2224/2224321.png";
+  var _firstName = "";
+  var _lastName = "";
+  var _email = "";
+  var _gender = "";
+  var _adress = "";
 
   void initState() {
       // TODO: implement initState
@@ -33,9 +35,13 @@ var _imageUrl;
           _firstName = userData['results'][0]['name']['first'];
           _lastName = userData['results'][0]['name']['last'];
           _email = userData['results'][0]['email'];
+          _gender=userData['results'][0]['gender'];
+          _adress=userData['results'][0]['location']['country'];
         });
       }
+      print(_gender);
       print(_firstName);
+      print(_adress);
     }
 
 
@@ -47,7 +53,7 @@ var _imageUrl;
         color: Color.fromARGB(255, 243, 182, 252),
         child: 
         Column(children: [
-          userid(),
+          _imageUrl == "https://cdn-icons-png.flaticon.com/512/2224/2224321.png" ? CircularProgressIndicator(): userid(imgURL: _imageUrl, first:_firstName, last:_lastName,email:_email, gender:_gender, adress:_adress),
           Expanded(
             flex: 5,
             child: Align(
