@@ -53,7 +53,10 @@ class _aboutState extends State<about> {
           Builder(
             builder: (context) => IconButton(
               onPressed: () => Scaffold.of(context).openEndDrawer(), 
-              icon: CircleAvatar(radius: 10,child:ClipOval(child:Image.network(_imageUrl))))
+              icon: CircleAvatar(radius: 10,
+              backgroundColor: Colors.white,
+              child:ClipOval(child:
+              _imageUrl == "https://cdn-icons-png.flaticon.com/512/2224/2224321.png"? CircularProgressIndicator():Image.network(_imageUrl))))
       )],
       ),
       endDrawer: rightdrawer(),
@@ -119,7 +122,10 @@ class _aboutState extends State<about> {
           Builder(
             builder: (context) => IconButton(
               onPressed: () => Scaffold.of(context).openEndDrawer(), 
-              icon: CircleAvatar(radius: 10,child:ClipOval(child:Image.network(_imageUrl)))))
+              icon: CircleAvatar(radius: 10,
+              backgroundColor: Colors.white,
+              child:ClipOval(child:
+              _imageUrl == "https://cdn-icons-png.flaticon.com/512/2224/2224321.png"? CircularProgressIndicator():Image.network(_imageUrl)))))
         ],
       ),
       endDrawer: rightdrawer(),

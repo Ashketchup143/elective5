@@ -26,11 +26,22 @@ class Meal {
 }
 
 class _ApiMealsState extends State<ApiMeals> {
+  var _imageUrl = "https://cdn-icons-png.flaticon.com/512/2224/2224321.png";
+  
+  _fetchUserProfile() async {
+      final response = await http.get(Uri.parse('https://randomuser.me/api/'));
+      
+        final userData = json.decode(response.body);
+        setState(() {
+          _imageUrl = userData['results'][0]['picture']['large'];
+        });
+  }
   List<Meal> _meals = [];
 
   @override
   void initState() {
     super.initState();
+    _fetchUserProfile();
     _getMeals();
   }
 
@@ -69,7 +80,10 @@ class _ApiMealsState extends State<ApiMeals> {
           Builder(
             builder: (context) => IconButton(
               onPressed: () => Scaffold.of(context).openEndDrawer(), 
-              icon: Image.network('https://cdn-icons-png.flaticon.com/512/2224/2224321.png')))
+              icon: CircleAvatar(radius: 10,
+              backgroundColor: Colors.white,
+              child:ClipOval(child:
+              _imageUrl == "https://cdn-icons-png.flaticon.com/512/2224/2224321.png"? CircularProgressIndicator():Image.network(_imageUrl)))))
         ],
       ),
       endDrawer: rightdrawer(),
@@ -103,7 +117,10 @@ class _ApiMealsState extends State<ApiMeals> {
           Builder(
             builder: (context) => IconButton(
               onPressed: () => Scaffold.of(context).openEndDrawer(), 
-              icon: Image.network('https://cdn-icons-png.flaticon.com/512/2224/2224321.png')))
+              icon: CircleAvatar(radius: 10,
+              backgroundColor: Colors.white,
+              child:ClipOval(child:
+              _imageUrl == "https://cdn-icons-png.flaticon.com/512/2224/2224321.png"? CircularProgressIndicator():Image.network(_imageUrl)))))
         ],
       ),
       endDrawer: rightdrawer(),

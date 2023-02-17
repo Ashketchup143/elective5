@@ -69,27 +69,27 @@ var _imageUrl = "https://cdn-icons-png.flaticon.com/512/2224/2224321.png";
             child:
             Container()),
           
-          Center(
-        child: _imageUrl == null
-            ? CircularProgressIndicator()
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Image.network(_imageUrl),
-                  ),
-                  SizedBox(height: 20),
-                  Text(_firstName),
-                  SizedBox(height: 10),
-                  Text(_email),
-                ],
-              ),
-      ),
+      //     Center(
+      //   child: _imageUrl == null
+      //       ? CircularProgressIndicator()
+      //       : Column(
+      //           mainAxisAlignment: MainAxisAlignment.center,
+      //           children: [
+      //             Container(
+      //               padding: EdgeInsets.all(20),
+      //               decoration: BoxDecoration(
+      //                 color: Colors.grey[300],
+      //                 borderRadius: BorderRadius.circular(10),
+      //               ),
+      //               child: Image.network(_imageUrl),
+      //             ),
+      //             SizedBox(height: 20),
+      //             Text(_firstName),
+      //             SizedBox(height: 10),
+      //             Text(_email),
+      //           ],
+      //         ),
+      // ),
           ],
          ),
     );

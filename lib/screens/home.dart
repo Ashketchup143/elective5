@@ -13,6 +13,23 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> {
+
+  var _imageUrl = "https://cdn-icons-png.flaticon.com/512/2224/2224321.png";
+
+  void initState() {
+      // TODO: implement initState
+      super.initState();
+      _fetchUserProfile();
+    }
+  
+  _fetchUserProfile() async {
+      final response = await http.get(Uri.parse('https://randomuser.me/api/'));
+      
+        final userData = json.decode(response.body);
+        setState(() {
+          _imageUrl = userData['results'][0]['picture']['large'];
+        });
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -38,7 +55,10 @@ class _homeState extends State<home> {
           Builder(
             builder: (context) => IconButton(
               onPressed: () => Scaffold.of(context).openEndDrawer(), 
-              icon: Image.network('https://cdn-icons-png.flaticon.com/512/2224/2224321.png')))
+              icon: CircleAvatar(radius: 10,
+              backgroundColor: Colors.white,
+              child:ClipOval(child:
+              _imageUrl == "https://cdn-icons-png.flaticon.com/512/2224/2224321.png"? CircularProgressIndicator():Image.network(_imageUrl)))))
         ],
       ),
       endDrawer: rightdrawer(),
@@ -77,7 +97,10 @@ class _homeState extends State<home> {
           Builder(
             builder: (context) => IconButton(
               onPressed: () => Scaffold.of(context).openEndDrawer(), 
-              icon: Image.network('https://cdn-icons-png.flaticon.com/512/2224/2224321.png')))
+              icon: CircleAvatar(radius: 10,
+              backgroundColor: Colors.white,
+              child:ClipOval(child:
+              _imageUrl == "https://cdn-icons-png.flaticon.com/512/2224/2224321.png"? CircularProgressIndicator():Image.network(_imageUrl)))))
         ],
       ),
       endDrawer: rightdrawer(),
